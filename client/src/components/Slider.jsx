@@ -49,6 +49,7 @@ function Slider({ product }) {
                         <div className="product-slider__slider">
                             <Swiper {...params} className="slider-product__body">
                                 {product.images &&
+                                    product.images.length > 0 &&
                                     product.images.map((item, index) => (
                                         <SwiperSlide
                                             key={`${item}_${index}`}
@@ -76,6 +77,7 @@ function Slider({ product }) {
                                 onSwiper={setThumbsSwiper}
                                 className="slider-product__body">
                                 {product.images &&
+                                    product.images.length > 0 &&
                                     product.images.map((item, index) => (
                                         <SwiperSlide
                                             key={`${item}_${index}`}
