@@ -157,9 +157,10 @@ function Home() {
                     <div className="proud__container">
                         <h2>Мы гордимся нашими продуктами</h2>
                         <div className="proud__body">
-                            {advantages.map((advantage) => (
-                                <Proud key={advantage.title} item={advantage} />
-                            ))}
+                            {advantages &&
+                                advantages.map((advantage) => (
+                                    <Proud key={advantage.title} item={advantage} />
+                                ))}
                         </div>
                     </div>
                 </div>
