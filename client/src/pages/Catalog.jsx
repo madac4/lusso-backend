@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import { axiosInstance } from '../config';
 import { useNavigate } from 'react-router-dom';
 
 import Header from '../components/Header';
@@ -25,7 +25,7 @@ function Catalog() {
     // ? FETCH DATA
     React.useEffect(() => {
         const getCategories = async () => {
-            const res = await axios.get(`${process.env.REACT_APP_API}/categories`);
+            const res = await axiosInstance.get(`/categories`);
             setCategories(res.data);
         };
         getCategories();
@@ -33,9 +33,7 @@ function Catalog() {
 
     const getSubcategory = async (item) => {
         if (item) {
-            const { data } = await axios.get(
-                `${process.env.REACT_APP_API}/subcategories/find/${item._id}`,
-            );
+            const { data } = await axiosInstance.get(`/subcategories/find/${item._id}`);
             setCurrentBrands(data.brands);
         }
     };
@@ -43,7 +41,7 @@ function Catalog() {
     React.useEffect(() => {
         const getProducts = async () => {
             try {
-                const { data } = await axios.get(`${process.env.REACT_APP_API}/products`);
+                const { data } = await axiosInstance.get(`/products`);
                 setProducts(data);
             } catch (error) {
                 console.log(error);

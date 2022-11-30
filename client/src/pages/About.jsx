@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { axiosInstance } from '../config';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Founder from '../components/Founder';
@@ -9,8 +9,8 @@ function About() {
     const [clients, setClients] = useState([]);
 
     useEffect(() => {
-        axios
-            .get(`${process.env.REACT_APP_API}/clients`)
+        axiosInstance
+            .get(`/clients`)
             .then((res) => {
                 setClients(res.data);
             })

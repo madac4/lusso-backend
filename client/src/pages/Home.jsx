@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { slice } from 'lodash';
-import axios from 'axios';
+import { axiosInstance } from '../config';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -28,7 +28,7 @@ function Home() {
     React.useEffect(() => {
         const getProducts = async () => {
             try {
-                const { data } = await axios.get(`${process.env.REACT_APP_API}/products`);
+                const { data } = await axiosInstance.get(`/products`);
                 setProducts(data);
             } catch (error) {
                 console.log(error);
@@ -40,7 +40,7 @@ function Home() {
     React.useEffect(() => {
         const getAdvantages = async () => {
             try {
-                const { data } = await axios.get(`${process.env.REACT_APP_API}/advantages`);
+                const { data } = await axiosInstance.get(`/advantages`);
                 setAdvantages(data);
             } catch (error) {
                 console.log(error);
@@ -76,7 +76,7 @@ function Home() {
 
     // ? MODAL FUNCTIONS
     const getProductModal = async (id) => {
-        const { data } = await axios.get(`${process.env.REACT_APP_API}/products/?id=${id}`);
+        const { data } = await axiosInstance.get(`/products/?id=${id}`);
         setSingleProduct(data);
         setOpenModal(true);
     };

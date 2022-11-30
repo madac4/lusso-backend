@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import { axiosInstance } from '../config';
 import { slice } from 'lodash';
 
 import Product from './Product';
@@ -23,7 +23,7 @@ function Products({ products }) {
 
     // ? MODAL FUNCTIONS
     const getProductModal = async (id) => {
-        const { data } = await axios.get(`${process.env.REACT_APP_API}/products/?id=${id}`);
+        const { data } = await axiosInstance.get(`/products/?id=${id}`);
         setSingleProduct(data);
         setOpenModal(true);
         console.log(data);
