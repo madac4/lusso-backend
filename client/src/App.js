@@ -15,8 +15,6 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="catalog" element={<Catalog />} />
-                {/* <Route path="catalog/:category" element={<Catalog />} /> */}
-                {/* <Route path="/product/:id" element={<Modal />} /> */}
             </Routes>
         </ScrollToTop>
     );
