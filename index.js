@@ -28,11 +28,4 @@ app.use('/api/brands', brandRoute);
 app.use('/api/subcategories', subcategoryRoute);
 app.use('/api/categories', categoryRoute);
 
-app.use(express.static(path.join(__dirname, '/client/build')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
-});
-
-app.listen(process.env.PORT || 8888, () => {
-    console.log(`Server is running on port: ${process.env.PORT}`);
-});
+app.listen(process.env.PORT || 8888, '192.168.100.15');
